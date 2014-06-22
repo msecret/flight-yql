@@ -31,6 +31,16 @@ describeComponent('lib/flight-yql', function () {
   });
 
   describe('query()', function() {
+    var server;
+
+    beforeEach(function() {
+      server = sinon.fakeServer.create();
+    });
+
+    afterEach(function() {
+      server.restore();
+    });
+
     it('should throw an error if there is no query passed in', function() {
       var expected = new Error(this.component.attr.ERROR_NO_QUERY),
           self = this;
@@ -65,6 +75,38 @@ describeComponent('lib/flight-yql', function () {
       expect(function() {
         self.component.query('hello', 'world');
       }).toThrow(expected);
+    });
+    it('should return a jquery deferred', function() {
+      var actual = this.component.query('hello', function(){});
+
+      expect(actual.then).toBeDefined();
+    });
+    it('should make a request to the base uri', function() {
+      var expected;
+
+      expected = this.component.baseUri + '?format=JSON' + '&q=a';
+      this.component.query('a', function(){});
+
+      expect(server.requests).toBeDefined();
+      expect(server.requests[0].url).toEqual(expected);
+    });
+    it('should always make a GET request by default', function() {
+      this.component.query('a', function(){});
+
+      expect(server.requests[0]).toBeDefined();
+      expect(server.requests[0].method).toEqual('GET');
+    });
+    it('should set the format attribute to JSON by default', function() {
+      this.component.query('a', function(){});
+
+      expect(server.requests[0]).toBeDefined();
+      expect(server.requests[0].url.search('format=JSON')).toBeTruthy();
+    });
+    it('should set the q attribute to the query passed in', function() {
+      this.component.query('a', function(){});
+
+      expect(server.requests[0]).toBeDefined();
+      expect(server.requests[0].url.search('q=a')).toBeTruthy();
     });
   });
 });
