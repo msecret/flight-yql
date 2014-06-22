@@ -1,5 +1,5 @@
 {
-  "name": "flight-flight-yql",
+  "name": "flight-yql",
   "version": "0.0.0",
   "main": "lib/flight-yql.js",
   "dependencies": {

@@ -14,7 +14,7 @@ describeComponent('lib/flight-yql', function () {
   it('should have the base uri set correctly for yql', function() {
     var expected = 'https://query.yahooapis.com/v1/public/yql';
 
-    expect(this.component.baseUri).toEqual(expected);
+    expect(this.component.attr.baseUri).toEqual(expected);
   });
 
   it('should set default options for request as method GET', function() {

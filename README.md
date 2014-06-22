@@ -1,18 +1,29 @@
-# flight-flight-yql
+# flight-yql
 
-[![Build Status](https://secure.travis-ci.org/<username>/flight-flight-yql.png)](http://travis-ci.org/<username>/flight-flight-yql)
+[![Build Status](https://travis-ci.org/msecret/flight-yql.svg?branch=master)](https://travis-ci.org/msecret/flight-yql)
 
-A [Flight](https://github.com/flightjs/flight) component for…
+A [Flight](https://github.com/flightjs/flight) component for querying Yahoo's
+YQL API.
 
 ## Installation
 
 ```bash
-bower install --save flight-flight-yql
+bower install --save flight-yql
 ```
 
 ## Example
 
-…
+```javascript
+var yql = require('flight-yql/lib/flight-yql');
+
+yql.options.contentType = 'xml';
+yql.options.headers = {};
+
+yql.query('select * from yahoo.finance.stocks where symbol="yhoo"',
+  function(data) {
+    doSomethingWith(data);
+});
+```
 
 ## Development
 
