@@ -32,8 +32,7 @@ module.exports = function (config) {
       // loaded with require
       {pattern: 'bower_components/flight/**/*.js', included: false},
       {pattern: 'lib/**/*.js', included: false},
-      {pattern: 'test/spec/**/*.spec.js', included: false},
-      {pattern: 'test/integration/**/*.spec.js', included: false},
+      {pattern: process.env.TEST + '/**/*.spec.js', included: false},
 
       'test/test-main.js'
     ],
