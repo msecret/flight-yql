@@ -6,4 +6,3 @@ before_script:
   - bower install
 script:
   - npm run test
-  - npm run integration
