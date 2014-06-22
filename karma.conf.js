@@ -33,6 +33,7 @@ module.exports = function (config) {
       {pattern: 'bower_components/flight/**/*.js', included: false},
       {pattern: 'lib/**/*.js', included: false},
       {pattern: 'test/spec/**/*.spec.js', included: false},
+      {pattern: 'test/integration/**/*.spec.js', included: false},
 
       'test/test-main.js'
     ],
@@ -56,7 +57,8 @@ module.exports = function (config) {
     // - IE (only Windows)
     // CLI --browsers Chrome, Firefox, Safari
     browsers: [
-      'Chrome'
+      'Chrome',
+      'PhantomJS'
     ],
 
     // If browser does not capture in given timeout [ms], kill it

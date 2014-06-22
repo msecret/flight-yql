@@ -31,8 +31,10 @@
     "expect",
     "it",
     "requirejs",
+    "runs"
     "setupComponent",
     "sinon",
-    "spyOnEvent"
+    "spyOnEvent",
+    "waitsFor"
   ]
 }
