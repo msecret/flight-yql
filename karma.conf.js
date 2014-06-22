@@ -22,6 +22,8 @@ module.exports = function (config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'bower_components/jasmine-flight/lib/jasmine-flight.js',
+      'bower_components/sinonjs/sinon.js',
+      'bower_components/jasmine-sinon/lib/jasmine-sinon.js',
 
       // hack to load RequireJS after the shim libs
       'node_modules/requirejs/require.js',
