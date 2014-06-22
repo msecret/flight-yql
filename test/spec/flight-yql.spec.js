@@ -17,12 +17,6 @@ describeComponent('lib/flight-yql', function () {
     expect(this.component.attr.baseUri).toEqual(expected);
   });
 
-  it('should set default options for request as method GET', function() {
-    var expected = 'GET';
-
-    expect(this.component.options.method).toEqual(expected);
-  });
-
   it('should set the default headers of request to form encoded header', 
      function() {
     var expected =  {'Content-type': 'application/x-www-form-urlencoded'};
