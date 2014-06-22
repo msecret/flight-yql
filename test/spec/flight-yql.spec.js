@@ -81,15 +81,6 @@ describeComponent('lib/flight-yql', function () {
 
       expect(actual.then).toBeDefined();
     });
-    it('should make a request to the base uri', function() {
-      var expected;
-
-      expected = this.component.baseUri + '?format=JSON' + '&q=a';
-      this.component.query('a', function(){});
-
-      expect(server.requests).toBeDefined();
-      expect(server.requests[0].url).toEqual(expected);
-    });
     it('should always make a GET request by default', function() {
       this.component.query('a', function(){});
 
