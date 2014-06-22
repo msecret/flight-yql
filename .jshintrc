@@ -34,6 +34,7 @@
     "runs"
     "setupComponent",
     "sinon",
+    "spyOn",
     "spyOnEvent",
     "waitsFor"
   ]
