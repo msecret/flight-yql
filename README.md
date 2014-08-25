@@ -19,7 +19,7 @@ var yql = require('flight-yql/lib/flight-yql');
 yql.options.contentType = 'xml';
 yql.options.headers = {};
 
-yql.query('select * from yahoo.finance.stocks where symbol="yhoo"',
+yql.queryYql('select * from yahoo.finance.stocks where symbol="yhoo"',
   function(data) {
     doSomethingWith(data);
 });

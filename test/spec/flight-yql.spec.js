@@ -30,7 +30,7 @@ describeMixin('lib/with_yql', function () {
     expect(this.component.attributes.headers).toEqual(expected);
   });
 
-  describe('query()', function() {
+  describe('queryYql()', function() {
     var server;
 
     beforeEach(function() {
@@ -45,7 +45,7 @@ describeMixin('lib/with_yql', function () {
       var expected = new Error('No query specified'),
           self = this;
       expect(function() {
-        self.component.query();
+        self.component.queryYql();
       }).toThrow(expected);
     });
     it('should throw an error if the query is not a string', function() {
@@ -53,19 +53,19 @@ describeMixin('lib/with_yql', function () {
           self = this;
 
       expect(function() {
-        self.component.query({});
+        self.component.queryYql({});
       }).toThrow(expected);
 
       expect(function() {
-        self.component.query([]);
+        self.component.queryYql([]);
       }).toThrow(expected);
 
       expect(function() {
-        self.component.query(1);
+        self.component.queryYql(1);
       }).toThrow(expected);
 
       expect(function() {
-        self.component.query(true);
+        self.component.queryYql(true);
       }).toThrow(expected);
     });
     it('should throw an error if callback is not a function', function() {
@@ -74,28 +74,28 @@ describeMixin('lib/with_yql', function () {
           self = this;
 
       expect(function() {
-        self.component.query('hello', 'world');
+        self.component.queryYql('hello', 'world');
       }).toThrow(expected);
     });
     it('should return a jquery deferred', function() {
-      var actual = this.component.query('hello', function(){});
+      var actual = this.component.queryYql('hello', function(){});
 
       expect(actual.then).toBeDefined();
     });
     it('should always make a GET request by default', function() {
-      this.component.query('a', function(){});
+      this.component.queryYql('a', function(){});
 
       expect(server.requests[0]).toBeDefined();
       expect(server.requests[0].method).toEqual('GET');
     });
     it('should set the format attribute to JSON by default', function() {
-      this.component.query('a', function(){});
+      this.component.queryYql('a', function(){});
 
       expect(server.requests[0]).toBeDefined();
       expect(server.requests[0].url.search('format=JSON')).toBeTruthy();
     });
     it('should set the q attribute to the query passed in', function() {
-      this.component.query('a', function(){});
+      this.component.queryYql('a', function(){});
 
       expect(server.requests[0]).toBeDefined();
       expect(server.requests[0].url.search('q=a')).toBeTruthy();

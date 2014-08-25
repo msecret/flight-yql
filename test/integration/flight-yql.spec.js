@@ -7,14 +7,14 @@ describeMixin('lib/with_yql', function () {
 
     this.data = {};
     this.callback = function(data) {
-      self.data = data; 
+      self.data = data;
     };
   });
 
   it('should call the callback passed in on success', function() {
     var testCallback = jasmine.createSpy();
 
-    var s = this.component.query(
+    var s = this.component.queryYql(
         'select * from yahoo.finance.stocks where symbol="yhoo"',
         testCallback);
 
@@ -30,7 +30,7 @@ describeMixin('lib/with_yql', function () {
     var testCallback = spyOn(this, 'callback').andCallThrough(),
         self = this;
 
-    var s = this.component.query(
+    var s = this.component.queryYql(
         'select * from yahoo.finance.stocks where symbol="yhoo"',
         testCallback);
 
