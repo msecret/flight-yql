@@ -1,6 +1,6 @@
 'use strict';
 
-describeComponent('lib/flight-yql', function () {
+describeMixin('lib/with_yql', function () {
   beforeEach(function () {
     var self = this;
     setupComponent();

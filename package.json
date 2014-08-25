@@ -18,6 +18,6 @@
   "scripts": {
     "test": "TEST=test/spec karma start --single-run --reporters dots --browsers PhantomJS",
     "integration": "TEST=test/integration karma start --single-run --reporters dots --browsers PhantomJS",
-    "watch-test": "karma start"
+    "watch-test": "TEST=test/spec karma start"
   }
 }
