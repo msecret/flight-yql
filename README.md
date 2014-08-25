@@ -14,16 +14,17 @@ bower install --save flight-yql
 ## Example
 
 ```javascript
-var yql = require('flight-yql/lib/flight-yql');
+var flight = require('flight');
+var withYql = require('flight-yql/lib/with_yql');
 
-yql.options.contentType = 'xml';
-yql.options.headers = {};
+return flight.component(newThing, withYql);
 
-yql.queryYql('select * from yahoo.finance.stocks where symbol="yhoo"',
-  function(data) {
-    doSomethingWith(data);
-});
-```
+functin newThing() {
+  this.queryYql('select * from yahoo.finance.stocks where symbol="yhoo"',
+    function(data) {
+      doSomethingWith(data);
+  });
+}
 
 ## Development
 
@@ -41,10 +42,22 @@ commands in the repo's root directory.
 npm install && bower install
 ```
 
-To continuously run the tests in Chrome during development, just run:
+To run unit tests:
+
+```bash
+npm run test
+```
+
+Or to continuously run the tests in Chrome during development, just run:
 
 ```bash
 npm run watch-test
+```
+
+To run integration tests run:
+
+```bash
+npm run integration
 ```
 
 ## Contributing to this project
