@@ -25,6 +25,7 @@ functin newThing() {
       doSomethingWith(data);
   });
 }
+```
 
 ## Development
 
