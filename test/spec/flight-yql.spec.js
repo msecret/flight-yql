@@ -25,7 +25,7 @@ describeMixin('lib/with_yql', function () {
 
   it('should set the default headers of request to form encoded header',
      function() {
-    var expected =  {'Content-type': 'application/x-www-form-urlencoded'};
+    var expected =  {'Content-type': 'application/json;charset=UTF-8'};
 
     expect(this.component.attributes.headers).toEqual(expected);
   });
@@ -100,5 +100,12 @@ describeMixin('lib/with_yql', function () {
       expect(server.requests[0]).toBeDefined();
       expect(server.requests[0].url.search('q=a')).toBeTruthy();
     });
+    it('should encode the query for a uri', function() {
+      this.component.queryYql('something = a', function(){});
+
+      expect(server.requests[0]).toBeDefined();
+      expect(server.requests[0].url.search('q=something%2520%253D%2520a'))
+        .toBeTruthy();
+    })
   });
 });
